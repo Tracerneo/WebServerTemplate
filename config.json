@@ -1,0 +1,54 @@
+{"config":
+  {
+    "version":  0.1,
+    "_server": "Server configuration",
+    "server": {
+      "_fcgi"     : "Work as FCGI",
+      "fcgi"      : false,
+      "_type"     : "One of:",
+      "_type"     : "'unix' (unix socket), 'tcp' (any tcp)",
+      "_type"     : "'tcp4' (ipv4 only), 'tcp6' (ipv6 only)",
+      "type"      : "tcp",
+      "_address"  : "Address that server will be bound to",
+      "address"   : "127.0.0.1",
+      "_port"     : "Port that server will be bound to",
+      "port"      : "9001",
+      "_socket"   : "Socket path",
+      "socket"    : "./file.socket"
+    },
+    "_path": "Server paths configuration",
+    "_path": "Website will be available under example.org/<basepath>/",
+    "path": {
+      "_domain"   : "Domains of server instance",
+      "domain"    : {
+        "main"    : "example.org",
+        "static"  : "example.net",
+        "images"  : "img.example.org"
+      },
+      "_basepath" : "Basepath of server files",
+      "basepath"  : "/",
+      "_panel"    : "URL name for panel",
+      "panel"     : "panel"
+    },
+    "_admin": "Master admin of website",
+    "admin": {
+      "_user"     : "Login of master admin",
+      "user"      : "admin",
+      "_pass"     : "Password of master admin, change to something secure",
+      "pass"      : "pass"
+    },
+    "_database": "Database info",
+    "database": {
+      "_type"     : "Only 'flatfile' and 'mongodb' supported now (nothing is supported tbh)",
+      "type"      : "flatfile",
+      "_address"  : "Address of database",
+      "address"   : "127.0.0.1",
+      "_port"     : "Port of database",
+      "port"      : "27017",
+      "_user"     : "User for database",
+      "user"      : "dbuser",
+      "_pass"     : "Password for user",
+      "pass"      : "dbpass"
+    }
+  }
+}
