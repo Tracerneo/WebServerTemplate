@@ -55,7 +55,7 @@ type SConfDB struct {
 
 //====================================//
 // Parse Configuration
-func parseConfig() (*ServerConf, error) {
+func parseConfig() (*ServerConf) {
 	configFile, err := ioutil.ReadFile("config.json")
 	if err != nil {
 		log.Fatalln("Error: ParseConfig():", err)
@@ -63,9 +63,9 @@ func parseConfig() (*ServerConf, error) {
 	c := new(ServerConf)
 	if err := json.Unmarshal(configFile, c); err != nil {
 		log.Println("Warning: ParseConfig():", err)
-		return c, err
+		return c
 	}
-	return c, nil
+	return c
 }
 
 //====================================//

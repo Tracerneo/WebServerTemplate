@@ -71,7 +71,7 @@ MIT, BSD or something. There is no help.
 func main() {
 	flag.Parse()
 	engineInit()
-	c, _ := parseConfig()
+	c := parseConfig()
 	debug(c)
 	configure(c)
 
