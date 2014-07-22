@@ -107,6 +107,7 @@ func main() {
 
 	// Handle custom webpages
 	// FIXME
+	r.HandleFunc("/", helloWorldHandler)
 	r.HandleFunc("/hello/{subject}", helloWorldHandler)
 
 	// Handle JSON API

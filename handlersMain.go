@@ -39,7 +39,11 @@ func helloWorldHandler(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
 	debug("vars:", vars)
 	debug("vars[\"subject\"]:", vars["subject"])
-	fmt.Fprintln(w, "Hello", vars["subject"]+"!")
+	if(vars["subject"] != "") {
+		fmt.Fprintln(w, "Hello", vars["subject"]+"!")
+	}	else {
+		fmt.Fprintln(w, "Hello World!")
+	}
 }
 
 //####################################//
