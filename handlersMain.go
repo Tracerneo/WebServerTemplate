@@ -1,8 +1,8 @@
 package main
 
 import (
-	"fmt"
-	//  "log"
+	//  "fmt"
+	"log"
 	// File handling
 	//  "os"
 	//  "io/ioutil"
@@ -17,7 +17,7 @@ import (
 	// Path decoding, markdown/BBCode
 	//  "regexp"
 	// Webpage generation
-	//  "html/template"
+	"html/template"
 )
 
 //####################################//
@@ -29,6 +29,9 @@ import (
 //====================================//
 // Structs
 // FIXME
+type Hello struct {
+	Subject string
+}
 
 //####################################//
 // Dynamic handlers
@@ -39,11 +42,17 @@ func helloWorldHandler(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
 	debug("vars:", vars)
 	debug("vars[\"subject\"]:", vars["subject"])
-	if(vars["subject"] != "") {
-		fmt.Fprintln(w, "Hello", vars["subject"]+"!")
-	}	else {
-		fmt.Fprintln(w, "Hello World!")
+	h := Hello{}
+	if vars["subject"] != "" {
+		h.Subject = vars["subject"]
+	} else {
+		h.Subject = "World"
 	}
+	t, err := template.ParseFiles("template/hello.tpl")
+	if err != nil {
+		log.Fatalln("Error: main():", err)
+	}
+	t.Execute(w, h)
 }
 
 //####################################//

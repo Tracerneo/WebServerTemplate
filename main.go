@@ -80,12 +80,18 @@ func main() {
 
 	// FIXME add routes
 	// Serve static content
-	router.Host(c.Config.Path.Domain.Static).PathPrefix("/").
-		Handler(http.FileServer(http.Dir("htdocs/static/")))
-	router.Host(c.Config.Path.Domain.Images).PathPrefix("/src/").
-		Handler(http.FileServer(http.Dir("htdocs/img/src/")))
-	router.Host(c.Config.Path.Domain.Images).PathPrefix("/thumb/").
-		Handler(http.FileServer(http.Dir("htdocs/img/thumb/")))
+	router.
+		//Host(c.Config.Path.Domain.Static).
+		PathPrefix("/static/").
+		Handle(http.FileServer(http.Dir("htdocs/")))
+	router.
+		//Host(c.Config.Path.Domain.Images).
+		PathPrefix("/src/").
+		Handler(http.FileServer(http.Dir("htdocs/img/")))
+	router.
+		//Host(c.Config.Path.Domain.Images).
+		PathPrefix("/thumb/").
+		Handler(http.FileServer(http.Dir("htdocs/img/")))
 
 	// Main subrouter
 	r := router.
