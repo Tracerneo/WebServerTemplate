@@ -45,7 +45,31 @@ table {
 }
 
 /* Main CSS code */
+html {
+  margin-top: 20px;
+}
 body {
-  background-color: #ffeeee;
+  background-color: #eeeeee;
   color: #111111;
+  font-family: sans-serif;
+  font-size: 16pt;
+  text-align: center;
+}
+h1 {
+  font-size: 2em;
+  font-weight: bold;
+  padding-bottom: 16px;
+  border-bottom: 4px solid #111111
+}
+p {
+  padding-top: 8px;
+}
+a, a:visited {
+  padding: 2px;
+  color: #0099ff;
+  text-decoration: none;
+}
+a:hover { 
+  background-color: #0099ff;
+  color: #eeeeee;
 }

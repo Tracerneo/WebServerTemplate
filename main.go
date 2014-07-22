@@ -83,7 +83,7 @@ func main() {
 	router.
 		//Host(c.Config.Path.Domain.Static).
 		PathPrefix("/static/").
-		Handle(http.FileServer(http.Dir("htdocs/")))
+		Handler(http.FileServer(http.Dir("htdocs/")))
 	router.
 		//Host(c.Config.Path.Domain.Images).
 		PathPrefix("/src/").
@@ -114,6 +114,7 @@ func main() {
 	// Handle custom webpages
 	// FIXME
 	r.HandleFunc("/", helloWorldHandler)
+	r.HandleFunc("/hello/", helloWorldHandler)
 	r.HandleFunc("/hello/{subject}", helloWorldHandler)
 
 	// Handle JSON API
